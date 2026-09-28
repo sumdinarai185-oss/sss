@@ -1,0 +1,492 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Boyfriend Day ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, serif;
+            background: linear-gradient(135deg, #ffd6e0, #fff1f5);
+            color: #542632;
+            text-align: center;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 25px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.92);
+            width: 90%;
+            max-width: 550px;
+            padding: 40px 25px;
+            border-radius: 30px;
+            box-shadow: 0 10px 35px rgba(100,40,60,0.15);
+        }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 27px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        button {
+            background: #d95778;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        input {
+            width: 85%;
+            padding: 15px;
+            border: 2px solid #e6a4b5;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 15px;
+            outline: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .gift-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .gift {
+            width: 140px;
+            min-height: 120px;
+            background: white;
+            border-radius: 22px;
+            padding: 20px 10px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(100,40,60,0.12);
+            transition: 0.3s;
+        }
+
+        .gift:hover {
+            transform: translateY(-7px) scale(1.03);
+        }
+
+        .emoji {
+            font-size: 40px;
+        }
+
+        .small {
+            font-size: 14px;
+        }
+
+        .heart {
+            position: fixed;
+            bottom: -20px;
+            animation: float 6s linear infinite;
+            font-size: 22px;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-110vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- FIRST SCREEN -->
+
+<div class="page" id="first">
+
+    <div class="card">
+
+        <h1>Hey You... ❤️</h1>
+
+        <p>
+            I made something especially for you.
+        </p>
+
+        <p>
+            But you have to discover it yourself. 👀
+        </p>
+
+        <button onclick="nextPage('first','second')">
+            Click Here ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- SECOND SCREEN -->
+
+<div class="page hidden" id="second">
+
+    <div class="card">
+
+        <h1>I Got Something For You 🎁</h1>
+
+        <p>
+            It's a little surprise from me to you.
+        </p>
+
+        <p>
+            But there's one tiny problem... 👀
+        </p>
+
+        <p>
+            You need to unlock it first. 🔐
+        </p>
+
+        <button onclick="nextPage('second','lock')">
+            Okay, Let's Unlock It ❤️
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- SECRET LOCK -->
+
+<div class="page hidden" id="lock">
+
+    <div class="card">
+
+        <h1>🔐 Secret Lock</h1>
+
+        <p>
+            Enter the date our story began. ❤️
+        </p>
+
+        <p class="small">
+            Hint: Our anniversary date
+        </p>
+
+        <input
+            id="code"
+            placeholder="DD/MM/YYYY"
+        >
+
+        <br>
+
+        <button onclick="unlock()">
+            Unlock ❤️
+        </button>
+
+        <p id="wrong"></p>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN PAGE -->
+
+<div class="hidden" id="main">
+
+    <div class="page">
+
+        <div class="card">
+
+            <h1>Happy Boyfriend Day ❤️</h1>
+
+            <h2>My Love,</h2>
+
+            <p>
+                Happy Boyfriend Day to the most special
+                person in my life. ❤️
+            </p>
+
+            <p>
+                Even though we're far away from each other,
+                you are always close to my heart.
+            </p>
+
+            <p>
+                I wish I could be beside you today,
+                but until that day comes, I hope this little
+                surprise reminds you how much you mean to me.
+            </p>
+
+            <p>
+                Thank you for being such a beautiful part
+                of my life. 🥹❤️
+            </p>
+
+            <p>
+                I love you more than words can explain.
+            </p>
+
+            <h2>Forever yours 💗</h2>
+
+        </div>
+
+    </div>
+
+
+    <!-- SURPRISE BOXES -->
+
+    <div class="page">
+
+        <div class="card">
+
+            <h1>I Have More For You 🎁</h1>
+
+            <p>
+                Open them one by one. ❤️
+            </p>
+
+            <div class="gift-container">
+
+                <div class="gift" onclick="openMessage(1)">
+                    <div class="emoji">💌</div>
+                    <b>A Message</b>
+                    <p class="small">Open me</p>
+                </div>
+
+
+                <div class="gift" onclick="openMessage(2)">
+                    <div class="emoji">📸</div>
+                    <b>Our Memories</b>
+                    <p class="small">Open me</p>
+                </div>
+
+
+                <div class="gift" onclick="openMessage(3)">
+                    <div class="emoji">💗</div>
+                    <b>Why I Love You</b>
+                    <p class="small">Open me</p>
+                </div>
+
+
+                <div class="gift" onclick="openMessage(4)">
+                    <div class="emoji">🥺</div>
+                    <b>When You Miss Me</b>
+                    <p class="small">Open me</p>
+                </div>
+
+
+                <div class="gift" onclick="openMessage(5)">
+                    <div class="emoji">🎵</div>
+                    <b>Our Song</b>
+                    <p class="small">
+                        The song you dedicated to me ❤️
+                    </p>
+                </div>
+
+
+                <div class="gift" onclick="openMessage(6)">
+                    <div class="emoji">💍</div>
+                    <b>Our Future</b>
+                    <p class="small">Open me</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    function nextPage(current, next) {
+
+        document.getElementById(current)
+            .classList.add("hidden");
+
+        document.getElementById(next)
+            .classList.remove("hidden");
+
+        window.scrollTo(0, 0);
+    }
+
+
+    function unlock() {
+
+        let code = document.getElementById("code").value;
+
+        code = code.replace(/[\s\/\-]/g, "");
+
+        if (
+            code === "10052025" ||
+            code === "20250510"
+        ) {
+
+            document.getElementById("lock")
+                .classList.add("hidden");
+
+            document.getElementById("main")
+                .classList.remove("hidden");
+
+            window.scrollTo(0, 0);
+
+        } else {
+
+            document.getElementById("wrong").innerHTML =
+                "Hmm... that's not our special date 🥺❤️";
+
+        }
+    }
+
+
+    function openMessage(number) {
+
+
+        if (number === 1) {
+
+            alert(
+                "💌 A Message For You\n\n" +
+                "You are one of the most special people " +
+                "in my life.\n\n" +
+                "No matter how far away we are, " +
+                "you will always have a special place " +
+                "in my heart. ❤️"
+            );
+
+        }
+
+
+        if (number === 2) {
+
+            alert(
+                "📸 Our Memories\n\n" +
+                "These are the little moments that " +
+                "mean the world to me.\n\n" +
+                "I can't wait to make many more memories " +
+                "with you. ❤️"
+            );
+
+        }
+
+
+        if (number === 3) {
+
+            alert(
+                "💗 Why I Love You\n\n" +
+                "I love you for the little things, " +
+                "the big things, the way you make me smile, " +
+                "and simply for being you. 🥹❤️"
+            );
+
+        }
+
+
+        if (number === 4) {
+
+            alert(
+                "🥺 When You Miss Me\n\n" +
+                "Whenever you miss me, remember that " +
+                "somewhere far away, there is someone " +
+                "who loves you so much. ❤️"
+            );
+
+        }
+
+
+        if (number === 5) {
+
+            alert(
+                "🎵 Our Song ❤️\n\n" +
+                "The song you dedicated to me...\n\n" +
+                "The first song you ever sang for me. 🥹❤️\n\n" +
+                "Perfect — Ed Sheeran\n\n" +
+                "Every time I hear this song, " +
+                "I'll remember that moment. ❤️"
+            );
+
+            window.open(
+                "https://www.youtube.com/watch?v=2Vv-BfVoq4g",
+                "_blank"
+            );
+
+        }
+
+
+        if (number === 6) {
+
+            alert(
+                "💍 Our Future\n\n" +
+                "Distance is only a part of our story.\n\n" +
+                "I hope one day we won't have to say " +
+                "goodbye anymore. ❤️\n\n" +
+                "You + Me = Forever 💗"
+            );
+
+        }
+
+    }
+
+
+    // Floating hearts ❤️
+
+    setInterval(function() {
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerHTML = "❤️";
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 8000);
+
+    }, 700);
+
+</script>
+
+</body>
+</html>
+```
